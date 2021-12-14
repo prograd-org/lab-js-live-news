@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+  height: 100vh;
+  width: 100vw;
+}
+.navBar{
+    display: flex;
+    width: 100%;
+    background-color: orangered;
+    height: 3.5rem;
+    align-items: center;
+    color: white;
+    font-size: large;
+}
+.triangle{
+  border-left: solid 7px transparent;
+  border-right: solid 7px transparent;
+  border-top: solid 7px white;
+  height: 0;
+  width: 0;
+  position: relative;
+  top: 2vh;
+  right: -1vh;
+  transition: .5s ease;
+}
+
+.navBar p{
+  margin: 0 2%;
+}
+.dropDownList{
+  display: flex;
+  position: absolute;
+  left: 20rem;
+  background: aliceblue;
+  height: 7vh;
+  flex-direction: column;
+  font-size: larger;
+  justify-content: space-around;
+  transition: .5s ease-out;
+  opacity: 0;
+}
+
+.dropDownList p:hover{
+  transition: .3s cubic-bezier(1, 1, 1, 1);
+  background: #007aff;
+  color: aliceblue;
+}
+.main {
+  position: relative;
+  z-index: -1;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 2% 6px;
+}
+
+.template {
+  width: 30vw;
+}
+
+.template img {
+  width: 100%;
+}
+
+.template p {
+  color: #000000bd;
+}
+
+.template button {
+  border: none;
+  height: 5vh;
+  width: 15vh;
+  background: rgb(66, 134, 245);
+  color: aliceblue;
+  box-shadow: rgb(0 0 0 / 39%) 0px 2px 12px 2px;
+  font-weight: 600;
+}
