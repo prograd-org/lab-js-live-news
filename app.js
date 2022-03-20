@@ -1,6 +1,6 @@
 const getdata = async (country) => {
     try {
-        const apikey = '99b840033a7b4e6a8e68bb30c22abc11'
+        const apikey = '7963f09981e8426ca20c2c83f41b21a7'
         let data = await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apikey}`)
 
         if (data.status === 200)
