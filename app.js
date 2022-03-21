@@ -1,47 +1,48 @@
-const apikey = '5436215f984d44f28069ec7aebfd42b3'
-
-async function getData(api) {
-    try {
-        const data = await fetch(api);
-        return await data.json()
-    } catch (err) {
-        console.log(err);
-    }
+function _(id) {
+    return document.querySelector(id);
 }
 
-async function category() {
-    let country = document.getElementById("dd1").value;
-    if (country !== "") {
-        let apiurl = "https://newsapi.org/v2/top-headlines?country=" + country + "&apiKey=" + apikey;
-        axios.get(apiurl)
-            .then(res => {
-                console.log(res)
-                let latestNews = res.data.articles;
-                console.log(latestNews);
-                var newsContent = '';
+let dropbotton = _(".navBar").childNodes;
+let dropflag = false;
 
-                for (var i in latestNews) {
-                    newsContent +=
-
-                        `<div class="newsContent">
-    <div class="card-image">
-    <img  src="${latestNews[i].urlToImage}">
-    </div>
-    <div class="card-title">
-    <h6>${latestNews[i].title}</h6>
-    </div>
-    <div class="card-des">
-    <p>${latestNews[i].description}</p>
-    </div>
-    <div class="btn">
-    <a href="${latestNews[i].url}">READ MORE</a>
-    </div>
-    </div>`;
-                }
-                document.getElementById('content').innerHTML = newsContent;
-            })
-            .catch(err => {
-                console.log(err)
-            })
+dropbotton[5].addEventListener("click", () => {
+    if (dropflag) {
+        _(".dropDownList").style.opacity = "0";
+        dropflag = false;
+        _(".triangle").style.borderBottom = "solid 7px transparent";
+        _(".triangle").style.top = "1.5vh";
+        _(".triangle").style.borderTop = "solid 7px #fff";
+    } else {
+        _(".dropDownList").style.opacity = "1";
+        dropflag = true;
+        _(".triangle").style.borderBottom = "solid 7px #fff";
+        _(".triangle").style.top = "-1.5vh";
+        _(".triangle").style.borderTop = "solid 7px transparent";
     }
+})
+
+function country(cid) {
+    const myNode = _(".main");
+    while (myNode.lastElementChild) {
+        myNode.removeChild(myNode.lastElementChild);
+    }
+    fetch(`https://newsapi.org/v2/top-headlines?country=${cid}&category=business&apiKey=e02ea5ef4c6849b386d97c6e17077f83`)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            for (let i = 0; i < data.articles.length; i++) {
+                let template = document.createElement("div");
+                template.classList.add("template");
+                let img = document.createElement("img");
+                img.src = data.articles[i].urlToImage;
+                let head = document.createElement("h2");
+                head.textContent = data.articles[i].title;
+                let desc = document.createElement("p");
+                desc.textContent = data.articles[i].description;
+                let readbtn = document.createElement("button");
+                readbtn.textContent = "Read More...";
+                template.append(img, head, desc, readbtn);
+                _(".main").appendChild(template);
+            }
+        })
 }
