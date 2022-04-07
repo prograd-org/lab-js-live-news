@@ -96,4 +96,4 @@ function news(country) {
         .catch((error)=>{
             console.log(error)
         })
-    }
+    } 
