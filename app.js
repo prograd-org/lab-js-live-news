@@ -8,7 +8,7 @@ function showdropdown() {
         drop.style.visibility = 'hidden'
     }
 }
-//Showing indian news
+//Showing indian news 
 function india(){
     let country = 'in'
     news(country)
