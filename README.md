@@ -12,7 +12,7 @@ Practice Axios and Rest API Features
 ```
 
 ## How To Submit
-```
+
 Upon completion, run the following commands:
 
 git add .
