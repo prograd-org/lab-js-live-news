@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+    <title>News App</title>
+  </head>
+  <body>
+    <div class="menubar">
+      <div class="menuitem">News App</div>
+      <div class="menuitem">Top</div>
+      <div class="dropdown">
+        <button class="dropbtn">Country</button>
+        <div class="dropdown-content">
+          <a onclick="countryIN()">IN: India</a>
+          <a onclick="countryUS()">US: United States</a>
+        </div>
+      </div>
+    </div>
+    <div id="newsbar"></div>
+  </body>
+</html>
